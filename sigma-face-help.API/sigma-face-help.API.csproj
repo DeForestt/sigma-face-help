@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Algorithmia.Client" Version="1.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FaceHelp.Service.Library\FaceHelp.Service.Library.csproj" />
   </ItemGroup>
 

@@ -13,6 +13,7 @@ namespace sigma_face_help.API.Controllers
     [ApiController]
     public class PatientController : Controller
     {
+        // Add a new student to 
         [HttpGet("add")]
         public IActionResult AddNewPatient([FromQuery]PatientEntity patientEntity)
         {

@@ -13,7 +13,8 @@ namespace FaceHelp.Service.Library.Entities
         public string Password { get; set; }
         public int Age { get; set; }
         public List<Condition> HealthConditions { get; set; }
-    }
+        public List<Symptoms> CurrentSymptoms { get; set; }
+        public FaceEntity Face { get; set; }
 
     // Possible conditions
     public enum Condition
@@ -21,5 +22,10 @@ namespace FaceHelp.Service.Library.Entities
         Arthritis,
         Hypertension,
         Glaucoma
+    }
+
+    public enum Symptoms
+    {
+
     }
 }
