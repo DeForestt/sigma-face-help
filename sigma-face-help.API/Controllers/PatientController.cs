@@ -28,12 +28,19 @@ namespace sigma_face_help.API.Controllers
             return Ok("Age Error");
         }
 
-        [HttpPost("signIn")]
-        public IActionResult SignIn([FromBody]string userName, string password)
+        [HttpGet("signIn")]
+        public IActionResult SignIn([FromQuery]string userName, string password)
         {
             Patient patient = new Patient();
             PatientEntity patientEntity = patient.SignIn(userName, password);
             return Ok(patientEntity);
+        }
+
+        [HttpGet("facebyid")]
+        public IActionResult AddFaceByID([FromQuery]string id, [FromQuery]Face face)
+        {
+            //ask patientController to add a face by the customer ID
+            return Ok();
         }
     }
 }

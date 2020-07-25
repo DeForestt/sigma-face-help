@@ -1,0 +1,19 @@
+﻿@code {
+
+}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <div class="card d-flex" style="width: 90rem; height:90rem">
+        <div class="card-body">
+            <h5 class="card-title"> Title</h5>
+            <p class="card-subtitle"> Date</p>
+            <p class="card-text"> Description</p>
+        </div>
+        <div class="card-footer float">
+            <small class="text-muted">
+                <button @onclick="(e => RemovePost(post.Id))" class="btn-primary">
+                    Remove
+                </button>
+            </small>
+        </div>
+    </div>

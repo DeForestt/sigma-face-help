@@ -1,4 +1,5 @@
-﻿using FaceHelp.Service.Library.Entities;
+﻿using FaceHelp.Service.Library.Domains;
+using FaceHelp.Service.Library.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,17 +18,21 @@ namespace FaceHelp.Service.Library.Repositories
 
         public void SavePatient(PatientEntity patientEntity)
         {
-            object[] patients = this.Pull();
+            // Pull data from Json File
+            PatientEntity[] patients = this.Pull();
+            // Convert array into stack and add new user to stack.
             Stack<object> patientl = new Stack<object>(patients);
             patientl.Push(patientEntity);
+            // Push data back into Json File
             File.WriteAllText(JsonFileName, JsonSerializer.Serialize(patients));
         }
 
-        public object[] Pull()
+        public PatientEntity[] Pull()
         {
+            // Return data from the JSON File
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
-                return JsonSerializer.Deserialize<object[]>(jsonFileReader.ReadToEnd(),
+                return JsonSerializer.Deserialize<PatientEntity[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
@@ -37,6 +42,7 @@ namespace FaceHelp.Service.Library.Repositories
 
         public PatientEntity PullByUP(string username, string password)
         {
+            // Cycle through all Users and Output return the one with the correct username and password.
             foreach (PatientEntity patient in this.Pull())
             {
                 if (patient.UserName == username && patient.Password == password)
@@ -44,7 +50,27 @@ namespace FaceHelp.Service.Library.Repositories
                     return patient;
                 }
             }
+            // If no such account exists, return null
             return null;
+        }
+
+        public void AddFaceByID(string id, FaceEntity face)
+        {
+            // loop through people until ID is found
+
+            PatientEntity[] list = this.Pull();
+
+            foreach (PatientEntity patientEntity in list)
+            {
+                if (patientEntity.UserId == id)
+                {
+                    // Add the face to the list
+                    
+                    patientEntity.Face = face;
+                }
+            }
+            // serialize to back to Jason
+            File.WriteAllText(JsonFileName, JsonSerializer.Serialize(list));
         }
     }
 }
