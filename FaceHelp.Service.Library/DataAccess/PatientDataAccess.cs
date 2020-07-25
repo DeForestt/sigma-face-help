@@ -12,8 +12,9 @@ namespace FaceHelp.Service.Library.Repositories
     {
         private string JsonFileName
         {
-            get { return Path.Combine("patientData", "prayerRequests.json"); }
+            get { return Path.Combine("patientData.json"); }
         }
+
         public void SavePatient(PatientEntity patientEntity)
         {
             Stack<object> patients = this.Pull();
@@ -21,7 +22,7 @@ namespace FaceHelp.Service.Library.Repositories
             File.WriteAllText(JsonFileName, JsonSerializer.Serialize(patients));
         }
 
-        Stack<object> Pull()
+        public Stack<object> Pull()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
@@ -31,6 +32,18 @@ namespace FaceHelp.Service.Library.Repositories
                         PropertyNameCaseInsensitive = true
                     });
             }
+        }
+
+        public PatientEntity PullByUP(string username, string password)
+        {
+            foreach (PatientEntity patient in this.Pull())
+            {
+                if (patient.UserName == username && patient.Password == password)
+                { 
+                    return patient;
+                }
+            }
+            return null;
         }
     }
 }

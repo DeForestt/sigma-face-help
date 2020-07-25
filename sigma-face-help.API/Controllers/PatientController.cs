@@ -17,17 +17,22 @@ namespace sigma_face_help.API.Controllers
         public IActionResult AddNewPatient([FromQuery]PatientEntity patientEntity)
         {
             Patient patient = new Patient();
+            patientEntity.Age = 60;
             if(patient.ValidateData(patientEntity))
             {
                 var patientDataAccess = new PatientDataAccess();
                 patientDataAccess.SavePatient(patientEntity);
-                return Ok();
+                return Ok(patientEntity);
             }
             return Ok("Age Error");
         }
-        public IActionResult Index()
+
+        [HttpPost("signIn")]
+        public IActionResult SignIn([FromBody]string userName, string password)
         {
-            return View();
+            Patient patient = new Patient();
+            PatientEntity patientEntity = patient.SignIn(userName, password);
+            return Ok(patientEntity);
         }
     }
 }
