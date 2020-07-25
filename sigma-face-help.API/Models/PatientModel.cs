@@ -7,6 +7,7 @@ namespace sigma_face_help.API.Models
 {
     public class PatientModel
     {
+        public string UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
