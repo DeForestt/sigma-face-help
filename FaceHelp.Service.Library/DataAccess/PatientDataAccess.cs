@@ -12,21 +12,22 @@ namespace FaceHelp.Service.Library.Repositories
     {
         private string JsonFileName
         {
-            get { return Path.Combine("patientData.json"); }
+            get { return "patientData.json"; }
         }
 
         public void SavePatient(PatientEntity patientEntity)
         {
-            Stack<object> patients = this.Pull();
-            patients.Push(patientEntity);
+            object[] patients = this.Pull();
+            Stack<object> patientl = new Stack<object>(patients);
+            patientl.Push(patientEntity);
             File.WriteAllText(JsonFileName, JsonSerializer.Serialize(patients));
         }
 
-        public Stack<object> Pull()
+        public object[] Pull()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
-                return JsonSerializer.Deserialize<Stack<object>>(jsonFileReader.ReadToEnd(),
+                return JsonSerializer.Deserialize<object[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
