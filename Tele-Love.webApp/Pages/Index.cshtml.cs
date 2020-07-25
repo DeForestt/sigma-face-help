@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using sigma_face_help.API.Controllers;
 
 namespace Tele_Love.webApp.Pages
 {
@@ -17,9 +18,8 @@ namespace Tele_Love.webApp.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public void OnGet(string username, string password)
         {
-
         }
     }
 }

@@ -1,8 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Tele_Love.webApp</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="ttele-love-img.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Assets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\sigma-face-help.API\sigma-face-help.API.csproj" />
+  </ItemGroup>
 
 </Project>
