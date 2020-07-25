@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sigma-face-help.API", "sigm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceHelp.Service.Library", "FaceHelp.Service.Library\FaceHelp.Service.Library.csproj", "{975EBCDC-4D41-45CD-A7B6-9C2A88B844EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tele-Love.webApp", "Tele-Love.webApp\Tele-Love.webApp.csproj", "{1C3C1BEE-B46E-4008-99A0-957A23DA32A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{975EBCDC-4D41-45CD-A7B6-9C2A88B844EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{975EBCDC-4D41-45CD-A7B6-9C2A88B844EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{975EBCDC-4D41-45CD-A7B6-9C2A88B844EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C3C1BEE-B46E-4008-99A0-957A23DA32A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C3C1BEE-B46E-4008-99A0-957A23DA32A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C3C1BEE-B46E-4008-99A0-957A23DA32A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C3C1BEE-B46E-4008-99A0-957A23DA32A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
