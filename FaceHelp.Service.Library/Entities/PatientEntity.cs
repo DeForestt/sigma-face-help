@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace sigma_face_help.API.Models
+namespace FaceHelp.Service.Library.Entities
 {
-    public class PatientModel
+    public class PatientEntity
     {
         public string UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
         public int Age { get; set; }
         public List<Condition> HealthConditions { get; set; }
     }

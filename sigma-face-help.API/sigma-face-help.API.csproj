@@ -5,5 +5,9 @@
     <RootNamespace>sigma_face_help.API</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FaceHelp.Service.Library\FaceHelp.Service.Library.csproj" />
+  </ItemGroup>
+
 
 </Project>
